@@ -118,7 +118,7 @@ public class Tools {
         }
     }
 
-    public static void displayImageRound(final Context ctx, final ImageView img, @DrawableRes int drawable) {
+    public static void displayImageRoundlocal(final Context ctx, final ImageView img, @DrawableRes int drawable) {
         try {
             Glide.with(ctx).load(drawable).asBitmap().centerCrop().into(new BitmapImageViewTarget(img) {
                 @Override
@@ -136,6 +136,7 @@ public class Tools {
         try {
             Glide.with(ctx).load(url)
                     .crossFade()
+                    .error(R.drawable.img_social_android)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(img);
             System.out.println("imageload "+url);

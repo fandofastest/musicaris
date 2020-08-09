@@ -14,6 +14,7 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.uiuxdesign.uiuxdesignmaterials.model.MusicSongOffline;
 import com.uiuxdesign.uiuxdesignmaterials.model.MusicSongOnline;
 import com.uiuxdesign.uiuxdesignmaterials.utils.RealmHelper;
 import com.uiuxdesign.uiuxdesignmaterials.utils.Tools;
@@ -25,12 +26,15 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 public class PlayerService extends Service {
+    public static List<MusicSongOffline> listlocal = new ArrayList<>();
     public static List<MusicSongOnline> listtopsong = new ArrayList<>();
     public static List<MusicSongOnline> listrecent = new ArrayList<>();
     public static List<MusicSongOnline> listplaylist = new ArrayList<>();
     public static List<MusicSongOnline> currentlist = new ArrayList<>();
-    public  static String PLAYERSTATUS="STOP",REPEAT="OFF",SHUFFLE="OFF";
+    public static List<MusicSongOffline> currentlistoffline = new ArrayList<>();
+    public  static String PLAYERSTATUS="STOP",REPEAT="OFF",SHUFFLE="OFF",CURRENTTYPE="OFF";
     public static int totalduration,currentduraiton,currentpos;
+    String from;
     public static String currenttitle,currentartist,currentimageurl;
     Realm realm;
     public  static int sessionId;
@@ -73,11 +77,26 @@ public class PlayerService extends Service {
                     currentduraiton=mp.getCurrentPosition();
                 }
                 else if (status.equals("next")){
-                   playsong(currentpos+1);
+                    if (CURRENTTYPE.equals("ON")){
+                        playsong(currentpos+1);
+                    }
+
+                    else {
+                        playsongoff(currentpos+1);
+                    }
+
                 }
 
                 else if (status.equals("prev")){
-                   playsong(currentpos-1);
+
+                    if (CURRENTTYPE.equals("ON")){
+                        playsong(currentpos-1);
+                    }
+
+                    else {
+                        playsongoff(currentpos-1);
+                    }
+
                 }
 
 
@@ -89,8 +108,22 @@ public class PlayerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         initrealm();
+        from=intent.getStringExtra("from");
 
-        playsong(intent.getIntExtra("pos",0));
+        if (from.equals("online")){
+            CURRENTTYPE="ON";
+            playsong(intent.getIntExtra("pos",0));
+
+
+        }
+        else if (from.equals("offline")){
+            playsongoff(intent.getIntExtra("pos",0));
+            CURRENTTYPE="OFF";
+
+        }
+
+
+
 
 
 
@@ -193,21 +226,6 @@ public class PlayerService extends Service {
                         intent.putExtra("status", "playing");
                         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
 
-//                        final Handler handler = new Handler();
-//                        final int delay = 100; //milliseconds
-
-
-//                        if (mp.isPlaying()){
-//                            handler.postDelayed(new Runnable(){
-//                                public void run(){
-//                                    //do something
-//                                    currentduraiton=mp.getCurrentPosition();
-//                                    totalduration=mp.getDuration();
-//                                    handler.postDelayed(this, delay);
-//                                }
-//                            }, delay);
-//                        }
-
 
 
                     }
@@ -231,6 +249,112 @@ public class PlayerService extends Service {
 
     }
 
+
+    public void playsongoff(int pos){
+        currentpos=pos;
+        try {
+
+            final MusicSongOffline musicSongOffline = currentlistoffline.get(pos);
+            currentartist="Local";
+            currenttitle=musicSongOffline.getFilename();
+            currentimageurl="";
+
+
+
+
+            mp.stop();
+            mp.reset();
+            mp.release();
+
+
+
+            Uri myUri = Uri.parse(musicSongOffline.getFilepath());
+            mp = new MediaPlayer();
+            mp.setDataSource(this, myUri);
+            mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+//            mp.prepareAsync(); //don't use prepareAsync for mp3 playback
+
+            mp.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mp, int what, int extra) {
+
+                    return true;
+                }
+            });
+
+
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp1) {
+
+                    if (REPEAT.equals("ON")){
+                        playsongoff(currentpos);
+                    }
+                    else if (SHUFFLE.equals("ON")){
+
+                        int pos= (int) (Math.random() * (listlocal.size()));
+
+                        playsongoff(pos);
+                    }
+                    else {
+
+                        playsongoff(currentpos+1);
+                    }
+
+
+
+
+
+
+                }
+
+
+
+            });
+
+
+
+            mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @SuppressLint("RestrictedApi")
+                @Override
+                public void onPrepared(MediaPlayer mplayer) {
+
+
+
+                    sessionId=mp.getAudioSessionId();
+
+                    if (mplayer.isPlaying()) {
+                        mp.pause();
+
+                    } else {
+                        mp.start();
+                        PLAYERSTATUS="PLAYING";
+                        Intent intent = new Intent("musicplayer");
+                        intent.putExtra("status", "playing");
+                        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
+
+
+
+                    }
+
+                }
+
+
+            });
+
+
+
+
+
+            mp.prepareAsync();
+
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
+    }
 
 
 }
