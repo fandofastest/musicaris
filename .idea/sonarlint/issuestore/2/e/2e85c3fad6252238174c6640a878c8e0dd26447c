@@ -1,0 +1,17 @@
+
+I
+java:S1068"'Remove this unused "ctx" private field.(ÖÖ¾­şÿÿÿÿ8õŞ½.
+j	java:S116."URename this field "lyt_parent" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ö
+j	java:S116-"URename this field "lyt_bottom" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ĞŒ‚
+l
+java:S1104*"QMake image a static final constant or non-public and provide accessors if needed.(·ñşùÿÿÿÿ
+h
+java:S1128"KRemove this unused import 'com.uiuxdesign.uiuxdesignmaterials.utils.Tools'.(‡Äğù8õŞ½.
+g
+java:S1104,"QMake brief a static final constant or non-public and provide accessors if needed.(¿Ü¤°
+l
+java:S1104-"VMake lyt_bottom a static final constant or non-public and provide accessors if needed.(«ĞŒ‚
+l
+java:S1104."VMake lyt_parent a static final constant or non-public and provide accessors if needed.(¨ö
+k
+java:S1104+"PMake name a static final constant or non-public and provide accessors if needed.(±Ï‘…ıÿÿÿÿ

@@ -1,0 +1,107 @@
+
+t
+java:S1104"WMake listtopsong a static final constant or non-public and provide accessors if needed.(ëÑäÙ8÷İº½.
+I
+java:S1444""3Make this "public static currentartist" field final(Šğ°Œ
+s
+java:S1104"VMake listrecent a static final constant or non-public and provide accessors if needed.(²²ßè8Ö‚»½.
+:
+java:S2386"Make this member "protected".(²²ßè8Ö‚»½.
+X
+java:S2696w"6Make the enclosing method "static" or remove this set.(ßËòŒøÿÿÿÿ8ü‚Ü½.
+M
+java:S1444"0Make this "public static listrecent" field final(²²ßè8Ö‚»½.
+?
+java:S2386"Make this member "protected".(Ê›™¼ûÿÿÿÿ8ü‚Ü½.
+X
+java:S2696u"6Make the enclosing method "static" or remove this set.(îÓÍÁıÿÿÿÿ8ü‚Ü½.
+X	java:S125Ç"<This block of commented-out lines of code should be removed.(ÛÆÏ-8ü‚Ü½.
+N
+java:S1444"1Make this "public static listtopsong" field final(ëÑäÙ8÷İº½.
+G
+java:S1444"1Make this "public static currentlist" field final(ŸµÊõ
+K
+java:S1444""5Make this "public static currentimageurl" field final(Šğ°Œ
+X
+java:S2696q"6Make the enclosing method "static" or remove this set.(àù“óüÿÿÿÿ8ü‚Ü½.
+Y	java:S125Ã"<This block of commented-out lines of code should be removed.(Ãå˜Š8ü‚Ü½.
+L
+java:S2140š")Use "java.util.Random.nextInt()" instead.(…ù€äúÿÿÿÿ8ü‚Ü½.
+o
+java:S1104!"YMake totalduration a static final constant or non-public and provide accessors if needed.(÷èñø
+h
+java:S3008 "RRename this field "SHUFFLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¥«ê
+C
+java:S1659""-Declare "currentimageurl" on a separate line.(Šğ°Œ
+g
+java:S3008 "QRename this field "REPEAT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¥«ê
+3
+java:S2386"Make this member "protected".(ŸµÊõ
+X
+java:S26963"6Make the enclosing method "static" or remove this set.(ËèĞâÿÿÿÿÿ8ü‚Ü½.
+l
+java:S1104!"VMake currentpos a static final constant or non-public and provide accessors if needed.(÷èñø
+T
+java:S2696¾"6Make the enclosing method "static" or remove this set.(Ê”èá8ü‚Ü½.
+X
+java:S2696I"6Make the enclosing method "static" or remove this set.(ÖØ›´ûÿÿÿÿ8ü‚Ü½.
+i
+java:S1104 "SMake SHUFFLE a static final constant or non-public and provide accessors if needed.(—¥«ê
+>
+java:S1659!"(Declare "currentpos" on a separate line.(÷èñø
+[	java:S106ä"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8ü‚Ü½.
+m
+java:S3008 "WRename this field "PLAYERSTATUS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—¥«ê
+S
+java:S26966"6Make the enclosing method "static" or remove this set.(Ê”èá8ü‚Ü½.
+F
+java:S1444!"0Make this "public static currentpos" field final(÷èñø
+;
+java:S1659 "%Declare "SHUFFLE" on a separate line.(—¥«ê
+:
+java:S2386"Make this member "protected".(ëÑäÙ8÷İº½.
+S
+java:S2696v"6Make the enclosing method "static" or remove this set.(¬…É8ü‚Ü½.
+X	java:S125Ë"<This block of commented-out lines of code should be removed.(ëÑ¦G8ü‚Ü½.
+C
+java:S1444 "-Make this "public static SHUFFLE" field final(—¥«ê
+H
+java:S1444 "2Make this "public static PLAYERSTATUS" field final(—¥«ê
+K
+java:S1444!"5Make this "public static currentduraiton" field final(÷èñø
+:
+java:S1659 "$Declare "REPEAT" on a separate line.(—¥«ê
+I
+java:S1444!"3Make this "public static totalduration" field final(÷èñø
+z
+java:S1104"XMake listplaylist a static final constant or non-public and provide accessors if needed.(Ê›™¼ûÿÿÿÿ8ü‚Ü½.
+n
+java:S1104 "XMake PLAYERSTATUS a static final constant or non-public and provide accessors if needed.(—¥«ê
+T
+java:S1444"2Make this "public static listplaylist" field final(Ê›™¼ûÿÿÿÿ8ü‚Ü½.
+H
+java:S1444""2Make this "public static currenttitle" field final(Šğ°Œ
+h
+java:S1104 "RMake REPEAT a static final constant or non-public and provide accessors if needed.(—¥«ê
+B
+java:S1444 ",Make this "public static REPEAT" field final(—¥«ê
+o
+java:S1104""YMake currentartist a static final constant or non-public and provide accessors if needed.(Šğ°Œ
+C
+java:S1659!"-Declare "currentduraiton" on a separate line.(÷èñø
+A
+java:S1659""+Declare "currentartist" on a separate line.(Šğ°Œ
+m
+java:S1104"WMake currentlist a static final constant or non-public and provide accessors if needed.(ŸµÊõ
+X
+java:S2696D"6Make the enclosing method "static" or remove this set.(ÌÁ‘µÿÿÿÿÿ8ü‚Ü½.
+q
+java:S1104""[Make currentimageurl a static final constant or non-public and provide accessors if needed.(Šğ°Œ
+q
+java:S1104!"[Make currentduraiton a static final constant or non-public and provide accessors if needed.(÷èñø
+X
+java:S2696H"6Make the enclosing method "static" or remove this set.(ôÕ‰¦ıÿÿÿÿ8ü‚Ü½.
+n
+java:S1104""XMake currenttitle a static final constant or non-public and provide accessors if needed.(Šğ°Œ
+X
+java:S1874…":Remove this use of "setAudioStreamType"; it is deprecated.(Û”ê˜8ü‚Ü½.

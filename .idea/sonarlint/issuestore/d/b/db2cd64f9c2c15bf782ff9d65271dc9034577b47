@@ -1,0 +1,14 @@
+
+Q
+java:S1141–"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+W	java:S125¶"<This block of commented-out lines of code should be removed.(ŒñŠşÿÿÿÿ
+R	java:S125©"<This block of commented-out lines of code should be removed.(î­Ø
+R	java:S125¡"<This block of commented-out lines of code should be removed.(Ë¤°
+
+java:S1186¿"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(£µ¢›ÿÿÿÿÿ
+X	java:S125k"<This block of commented-out lines of code should be removed.(æ¡¦Ã8ø•„‘½.
+{
+java:S1488,"`Immediately return this expression instead of assigning it to the temporary variable "fragment".(ÀÈ¤Ÿşÿÿÿÿ
+R	java:S125„"<This block of commented-out lines of code should be removed.(¶ñ¼Œ
+—
+java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¢×õĞ

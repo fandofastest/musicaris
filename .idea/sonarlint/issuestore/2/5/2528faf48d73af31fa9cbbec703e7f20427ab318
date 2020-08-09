@@ -1,0 +1,60 @@
+
+?
+java:S1659'"$Declare "artist" on a separate line.(º¤îıÿÿÿÿ
+^
+java:S1192ı"GDefine a constant instead of duplicating this literal "status" 6 times.(Áê£ş
+M
+java:S2696½"6Make the enclosing method "static" or remove this set.(ŞƒËÆ
+M
+java:S1144á"6Remove this unused private "toggleButtonColor" method.(ßªÈã
+L
+java:S1128"6Remove this unused import 'android.media.MediaPlayer'.(İã¦
+@
+java:S1659("%Declare "shuffle" on a separate line.(±„Áîøÿÿÿÿ
+G
+java:S1874ä"0Remove this use of "getColor"; it is deprecated.(½ğ»»
+K
+java:S1874`"0Remove this use of "getColor"; it is deprecated.(åÿ™úÿÿÿÿ
+D	java:S108¸")Either remove or fill this block of code.(«Æ•–ûÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(ò†¶äúÿÿÿÿ
+B
+java:S1659'"'Declare "totaldura" on a separate line.(º¤îıÿÿÿÿ
+D
+java:S1199´"-Extract this nested code block into a method.(÷€¦
+u	java:S116&"[Rename this field "song_progressbar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¹£ùùÿÿÿÿ
+C
+java:S1659'"(Declare "currendura" on a separate line.(º¤îıÿÿÿÿ
+G
+java:S1874‘"0Remove this use of "getColor"; it is deprecated.(¿““Ú
+R
+java:S2696Ò"6Make the enclosing method "static" or remove this set.(„Åôßıÿÿÿÿ
+I
+java:S1199¦"-Extract this nested code block into a method.(š²ÑÎøÿÿÿÿ
+k	java:S116$"VRename this field "parent_view" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŞ‡•
+l	java:S116%"RRename this field "bt_play" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©´¾úÿÿÿÿ
+=
+java:S1905‚"&Remove this unnecessary cast to "int".(Ì‹şª
+I
+java:S1199­"-Extract this nested code block into a method.(ÜöäØüÿÿÿÿ
+D
+java:S1199Æ"-Extract this nested code block into a method.(œÛéÏ
+=	java:S131¥""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ
+G
+java:S1874é"0Remove this use of "getColor"; it is deprecated.(½ğ»»
+R
+java:S2696Ì"6Make the enclosing method "static" or remove this set.(Áù€ÿÿÿÿÿ
+V
+java:S3398û"?Move this method into the anonymous class declared at line 241.(ùÑ¸î
+R
+java:S2696¸"6Make the enclosing method "static" or remove this set.(£ÙÀûÿÿÿÿ
+V	java:S110""<This class has 9 parents which is greater than 5 authorized.(³ÖÏ×ÿÿÿÿÿ
+c
+java:S1192ü"LDefine a constant instead of duplicating this literal "musicplayer" 6 times.(Ô§¼¦
+_
+java:S1128"DRemove this unused import 'android.content.res.AssetFileDescriptor'.(Ï¡’Òıÿÿÿÿ
+H
+java:S1659&"-Declare "progressBarplay" on a separate line.(­¹£ùùÿÿÿÿ
+Q
+java:S1874`"6Remove this use of "setColorFilter"; it is deprecated.(åÿ™úÿÿÿÿ
+M
+java:S1128"7Remove this unused import 'android.media.AudioManager'.(ÑŠÀ†

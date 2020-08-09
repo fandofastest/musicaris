@@ -1,0 +1,25 @@
+
+`
+java:S1155!">Use isEmpty() to check whether the collection is empty or not.(è§¼Ìûÿÿÿÿ8ÀÊ½.
+
+java:S1488r"_Immediately return this expression instead of assigning it to the temporary variable "results".(—ııÿÿÿÿ8ÀÊ½.
+Z	java:S106K"9Replace this use of System.out or System.err by a logger.(æ¼¹Éøÿÿÿÿ8ÀÊ½.
+U	java:S106-"9Replace this use of System.out or System.err by a logger.(®ÏÌè8ÀÊ½.
+L
+java:S1481,"*Remove this unused "model" local variable.(Üê¤‘ûÿÿÿÿ8ÀÊ½.
+W	java:S125/"<This block of commented-out lines of code should be removed.(£İ¦D8ÀÊ½.
+W	java:S125V"<This block of commented-out lines of code should be removed.(£İ¦D8ÀÊ½.
+‚
+java:S1192‰"_Define a constant instead of duplicating this literal "onSuccess: Update Successfully" 3 times.(€¥îÏÿÿÿÿÿ8ÀÊ½.
+Z	java:S106$"9Replace this use of System.out or System.err by a logger.(ÆèŒ¥ùÿÿÿÿ8ÀÊ½.
+`
+java:S1155H">Use isEmpty() to check whether the collection is empty or not.(è§¼Ìûÿÿÿÿ8ÀÊ½.
+T	java:S106T"9Replace this use of System.out or System.err by a logger.(íèR8ÀÊ½.
+L
+java:S1481S"*Remove this unused "model" local variable.(Üê¤‘ûÿÿÿÿ8ÀÊ½.
+
+java:S1488g"_Immediately return this expression instead of assigning it to the temporary variable "results".(—ııÿÿÿÿ8ÀÊ½.
+[
+java:S1854S"9Remove this useless assignment to local variable "model".(Üê¤‘ûÿÿÿÿ8ÀÊ½.
+[
+java:S1854,"9Remove this useless assignment to local variable "model".(Üê¤‘ûÿÿÿÿ8ÀÊ½.
