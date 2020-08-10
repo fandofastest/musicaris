@@ -10,14 +10,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,8 +42,10 @@ import com.uiuxdesign.uiuxdesignmaterials.R;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.FragmentMusicAlbum;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.FragmentMusicSong;
 import com.uiuxdesign.uiuxdesignmaterials.adapter.AdapterListMusicSong;
+import com.uiuxdesign.uiuxdesignmaterials.fragment.LocalFragment;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.PlaylistsFragment;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.RecentFragment;
+import com.uiuxdesign.uiuxdesignmaterials.model.MusicSongOffline;
 import com.uiuxdesign.uiuxdesignmaterials.model.MusicSongOnline;
 import com.uiuxdesign.uiuxdesignmaterials.servicemusic.PlayerService;
 import com.uiuxdesign.uiuxdesignmaterials.utils.MusicUtils;
@@ -96,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
             bt_play.setImageResource(R.drawable.ic_play_arrow);
             hometitle.setText("No Song");
             homeartist.setText("");
+        }
+
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.System.canWrite(this)) {
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE}, 2909);
+            }
         }
     }
 
@@ -228,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(FragmentMusicAlbum.newInstance(), "GENRE");
         adapter.addFragment(RecentFragment.newInstance(), "RECENT");
         adapter.addFragment(PlaylistsFragment.newInstance(), "PLAYLIST");
-        adapter.addFragment(PlaylistsFragment.newInstance(), "LOCAL MUSIC");
+        adapter.addFragment(LocalFragment.newInstance(), "LOCAL MUSIC");
         viewPager.setAdapter(adapter);
     }
 
@@ -314,7 +328,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
-        intent.putExtra("from","select");
+        intent.putExtra("from","online");
+        intent.putExtra("pos",position);
+        startActivity(intent);
+
+
+
+
+
+
+
+
+    }
+
+    public void playmusicoffline (int position ,List<MusicSongOffline> listsong){
+
+        PlayerService.currentlistoffline=listsong;
+
+
+        Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
+        intent.putExtra("from","offline");
         intent.putExtra("pos",position);
         startActivity(intent);
 

@@ -63,11 +63,23 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
 
 
-        if (from.equals("select")){
+        if (from.equals("online")){
             pos=getIntent().getIntExtra("pos",0);
             getlocalbroadcaster();
             Intent playerservice= new Intent(PlayerMusicActivity.this, PlayerService.class);
 
+            playerservice.putExtra("from",from);
+            playerservice.putExtra("pos",pos);
+            startService(playerservice);
+
+        }
+
+        else
+        if (from.equals("offline")){
+            pos=getIntent().getIntExtra("pos",0);
+            getlocalbroadcaster();
+            Intent playerservice= new Intent(PlayerMusicActivity.this, PlayerService.class);
+            playerservice.putExtra("from",from);
 
             playerservice.putExtra("pos",pos);
             startService(playerservice);
@@ -377,6 +389,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
     }
     public void prev (){
+
 
         Intent intent = new Intent("musicplayer");
         intent.putExtra("status", "prev");
