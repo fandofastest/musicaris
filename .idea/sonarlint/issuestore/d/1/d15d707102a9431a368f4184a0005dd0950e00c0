@@ -1,54 +1,58 @@
 
 D
-java:S1905Õ"&Remove this unnecessary cast to "int".(Ì‹şª8ü·”½.
-Z
-java:S1128"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ8–Ú”½.
-F	java:S108Š")Either remove or fill this block of code.(å¥‡8ü·”½.
-v
-java:S1450@"YRemove the "tab_layout" field and declare it as a local variable in the relevant methods.(â‘ëš8ü·”½.
-X	java:S110:"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ü·”½.
-T
-java:S2696Ó"6Make the enclosing method "static" or remove this set.(Æµáî8ü·”½.
-T
-java:S1128"7Remove this unused import 'android.widget.AdapterView'.(¶¾éæ8¬»”½.
-t
-java:S1104<"WMake parent_view a static final constant or non-public and provide accessors if needed.(Ô—ßÒ8ü·”½.
-q	java:S116?"URename this field "view_pager" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òˆ•·8ù‡¶”½.
-P
-java:S1199´"-Extract this nested code block into a method.(¬àÍæüÿÿÿÿ8ü·”½.
-s	java:S116C"RRename this field "bt_play" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ÷øÿÿÿÿ8ù‡¶”½.
-D	java:S131³""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ8ü·”½.
-e
-java:S1192Ñ"GDefine a constant instead of duplicating this literal "status" 4 times.(Áê£ş8ü·”½.
-v
-java:S1450?"YRemove the "view_pager" field and declare it as a local variable in the relevant methods.(Òˆ•·8ù‡¶”½.
+java:S1905ã"&Remove this unnecessary cast to "int".(Ì‹şª8ü·”½.
 h
-java:S1874™"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(š‘ğá8ÈÁ¶”½.
-q	java:S116@"URename this field "tab_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‘ëš8ü·”½.
-Y
-java:S2696¹"6Make the enclosing method "static" or remove this set.(‚´©öùÿÿÿÿ8ü·”½.
-Q
-java:S1128"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8„ôº”½.
-r	java:S116<"VRename this field "parent_view" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô—ßÒ8ü·”½.
-S
-java:S1128"1Remove this unused import 'android.view.Gravity'.(ÎÎÎıÿÿÿÿ8š±–”½.
-|	java:S116D"[Rename this field "song_progressbar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê‹¦Ùøÿÿÿÿ8ü·”½.
-Z
-java:S1874š"<Remove this use of "FragmentPagerAdapter"; it is deprecated.(ó²–Ñ8ü·”½.
-]
-java:S3398Ï"?Move this method into the anonymous class declared at line 197.(ùÑ¸î8ü·”½.
-]	java:S125L"<This block of commented-out lines of code should be removed.(ò†¶äúÿÿÿÿ8ü·”½.
-j
-java:S1192Ğ"LDefine a constant instead of duplicating this literal "musicplayer" 4 times.(Ô§¼¦8ù‡¶”½.
-Y
-java:S2696Û"6Make the enclosing method "static" or remove this set.(ƒôÉüÿÿÿÿÿ8ü·”½.
+java:S1874§"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(š‘ğá8ÈÁ¶”½.
+q	java:S116D"URename this field "view_pager" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òˆ•·8ù‡¶”½.
+s	java:S116H"RRename this field "bt_play" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ÷øÿÿÿÿ8ù‡¶”½.
+P
+java:S1199Â"-Extract this nested code block into a method.(¬àÍæüÿÿÿÿ8ü·”½.
+r	java:S116A"VRename this field "parent_view" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô—ßÒ8ü·”½.
+|	java:S116I"[Rename this field "song_progressbar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê‹¦Ùøÿÿÿÿ8ü·”½.
 I
-java:S1068E",Remove this unused "mAdapter" private field.(Ëˆœ8ü·”½.
-C
-java:S1068H"&Remove this unused "mp" private field.(Øö ü8ü·”½.
-n
-java:S1301³"KReplace this "switch" statement by "if" statements to increase readability.(Ò“ÿšùÿÿÿÿ8ü·”½.
+java:S1068J",Remove this unused "mAdapter" private field.(Ëˆœ8ü·”½.
+T
+java:S1128"7Remove this unused import 'android.widget.AdapterView'.(¶¾éæ8¬»”½.
+S
+java:S1128"1Remove this unused import 'android.view.Gravity'.(ÎÎÎıÿÿÿÿ8š±–”½.
+v
+java:S1450E"YRemove the "tab_layout" field and declare it as a local variable in the relevant methods.(â‘ëš8ü·”½.
+X	java:S110?"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ü·”½.
+j
+java:S1192Ş"LDefine a constant instead of duplicating this literal "musicplayer" 4 times.(Ô§¼¦8ù‡¶”½.
+Q
+java:S1128"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×8„ôº”½.
+Z
+java:S1128"8Remove this unused import 'android.widget.ArrayAdapter'.( €ŠÑÿÿÿÿÿ8–Ú”½.
+v
+java:S1450D"YRemove the "view_pager" field and declare it as a local variable in the relevant methods.(Òˆ•·8ù‡¶”½.
+F	java:S108˜")Either remove or fill this block of code.(å¥‡8ü·”½.
 e
-java:S1192Z"HDefine a constant instead of duplicating this literal "PLAYING" 4 times.(ÒØÂ¡8ü·”½.
+java:S1192ß"GDefine a constant instead of duplicating this literal "status" 4 times.(Áê£ş8ü·”½.
+t
+java:S1104A"WMake parent_view a static final constant or non-public and provide accessors if needed.(Ô—ßÒ8ü·”½.
+C
+java:S1068M"&Remove this unused "mp" private field.(Øö ü8ü·”½.
+]	java:S125Q"<This block of commented-out lines of code should be removed.(ò†¶äúÿÿÿÿ8ü·”½.
+Z
+java:S1874¨"<Remove this use of "FragmentPagerAdapter"; it is deprecated.(ó²–Ñ8ü·”½.
+Y
+java:S2696ü"6Make the enclosing method "static" or remove this set.(ƒôÉüÿÿÿÿÿ8ü·”½.
+n
+java:S1301Á"KReplace this "switch" statement by "if" statements to increase readability.(Ò“ÿšùÿÿÿÿ8ü·”½.
 E
-java:S1659="(Declare "homeartist" on a separate line.(œÊˆÖ8ü·”½.
+java:S1659B"(Declare "homeartist" on a separate line.(œÊˆÖ8ü·”½.
+D	java:S131Á""Add a default case to this switch.(Ò“ÿšùÿÿÿÿ8ü·”½.
+]
+java:S3398İ"?Move this method into the anonymous class declared at line 211.(ùÑ¸î8ü·”½.
+q	java:S116E"URename this field "tab_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‘ëš8ü·”½.
+e
+java:S1192_"HDefine a constant instead of duplicating this literal "PLAYING" 4 times.(ÒØÂ¡8ü·”½.
+Y
+java:S2696Ç"6Make the enclosing method "static" or remove this set.(‚´©öùÿÿÿÿ8ü·”½.
+T
+java:S2696ô"6Make the enclosing method "static" or remove this set.(Æµáî8ü·”½.
+L
+java:S1066m"/Merge this if statement with the enclosing one.(ÜÛ¾‡8š÷ƒŠ¾.
+T
+java:S2696Ú"6Make the enclosing method "static" or remove this set.(œä§Ü8š÷ƒŠ¾.

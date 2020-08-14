@@ -56,7 +56,7 @@ public class FragmentMusicSong extends Fragment {
 
         context=getContext();
 
-
+        
 
         //set data and list adapter
          mAdapter = new AdapterListMusicSong(getActivity(), PlayerService.listtopsong,R.menu.menu_song_more);
@@ -75,6 +75,8 @@ public class FragmentMusicSong extends Fragment {
 
 
         });
+
+
 
         mAdapter.setOnMoreButtonClickListener(new AdapterListMusicSong.OnMoreButtonClickListener() {
             @Override

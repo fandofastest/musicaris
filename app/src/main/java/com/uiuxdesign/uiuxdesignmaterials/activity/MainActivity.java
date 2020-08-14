@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager(final ViewPager viewPager) {
        adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(FragmentMusicSong.newInstance(), "SONGS");
         adapter.addFragment(FragmentMusicAlbum.newInstance(), "GENRE");
@@ -244,6 +244,26 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(PlaylistsFragment.newInstance(), "PLAYLIST");
         adapter.addFragment(LocalFragment.newInstance(), "LOCAL MUSIC");
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                viewPager.getAdapter().notifyDataSetChanged();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
+
     }
 
     @Override

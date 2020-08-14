@@ -37,3 +37,5 @@ Vapp/src/main/java/com/uiuxdesign/uiuxdesignmaterials/adapter/AdapterListMusicSo
 Tapp/src/main/java/com/uiuxdesign/uiuxdesignmaterials/servicemusic/PlayerService.java,a\4\a44ec444c6c6238123c697cecd3b7d3a01499d7d
 †
 Vapp/src/main/java/com/uiuxdesign/uiuxdesignmaterials/activity/PlayerMusicActivity.java,2\5\2528faf48d73af31fa9cbbec703e7f20427ab318
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
