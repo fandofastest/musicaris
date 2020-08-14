@@ -14,6 +14,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
@@ -35,10 +36,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crowdfire.cfalertdialog.CFAlertDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import com.uiuxdesign.uiuxdesignmaterials.R;
+import com.uiuxdesign.uiuxdesignmaterials.ads.Interstitial;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.FragmentMusicAlbum;
 import com.uiuxdesign.uiuxdesignmaterials.fragment.FragmentMusicSong;
 import com.uiuxdesign.uiuxdesignmaterials.adapter.AdapterListMusicSong;
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Music Player");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         Tools.setSystemBarColor(this);
 
 
@@ -267,6 +270,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        CFAlertDialog.Builder builder = new CFAlertDialog.Builder(this)
+                .setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT)
+                .setTitle("Are You Sure to Quit App ?")
+                .setMessage("Music Will Stopped if Quit App, Just Press Home button if u wanna still listening music")
+                .addButton("Sure Quit", -1, -1, CFAlertDialog.CFAlertActionStyle.POSITIVE, CFAlertDialog.CFAlertActionAlignment.END, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                        finish();
+
+                    }
+                });
+
+// Show the alert
+        builder.show();
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search_setting, menu);
         MenuItem searchIem = menu.findItem(R.id.search);
@@ -347,10 +371,17 @@ public class MainActivity extends AppCompatActivity {
         PlayerService.currentlist=listsong;
 
 
+        Interstitial interstitial = new Interstitial();
+
+
         Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
         intent.putExtra("from","online");
         intent.putExtra("pos",position);
-        startActivity(intent);
+
+        interstitial.showinterfb(MainActivity.this,"263047564646166_263049504645972","ca-app-pub-3940256099942544/1033173712\n",intent);
+
+
+
 
 
 

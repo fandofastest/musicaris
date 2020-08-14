@@ -34,12 +34,14 @@
 
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
 
                <LinearLayout
+                   android:layout_gravity="center"
                    android:gravity="center"
                    android:layout_width="match_parent"
                    android:orientation="horizontal"
@@ -47,8 +49,9 @@
 
                    <TextView
                        android:maxLength="5"
+                       android:textAlignment="center"
                        android:id="@+id/timenow"
-                       android:layout_width="wrap_content"
+                       android:layout_width="50sp"
                        android:layout_height="wrap_content"
                        android:layout_marginTop="@dimen/spacing_medium"
                        android:text="00:00"
@@ -56,6 +59,7 @@
                        android:textColor="@color/grey_40" />
 
                 <RelativeLayout
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_large">
@@ -67,7 +71,7 @@
                         android:layout_width="235dp"
                         android:layout_height="235dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/photo_singer_male"
+                        android:src="@color/white_transparency"
                         app:civ_border_color="@color/grey_20"
                         app:civ_shadow="true"
                         app:civ_shadow_radius="0"
@@ -91,22 +95,24 @@
                 </RelativeLayout>
 
                    <TextView
-                       android:maxLength="5"
                        android:id="@+id/timetotal"
-                       android:layout_width="wrap_content"
+                       android:layout_width="50sp"
                        android:layout_height="wrap_content"
                        android:layout_marginTop="@dimen/spacing_medium"
+                       android:maxLength="5"
                        android:text="00:00"
+                       android:textAlignment="center"
                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
                        android:textColor="@color/grey_40" />
                </LinearLayout>
 
                 <TextView
+                    android:maxWidth="350sp"
                     android:id="@+id/txttitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_middle"
-                    android:text="Locking Up Your Symptoms"
+                    android:text="Please Wait"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorPrimaryLight"
                     android:textStyle="bold" />
@@ -116,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_medium"
-                    android:text="Who He Should Be"
+                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@color/grey_40" />
 

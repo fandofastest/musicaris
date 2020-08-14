@@ -68,7 +68,10 @@ public class FragmentMusicSong extends Fragment {
             public void onItemClick(View view, int pos) {
 
                 if (context instanceof MainActivity) {
+
                     ((MainActivity)context).playmusic(pos,PlayerService.listtopsong);
+
+
                 }
 
             }

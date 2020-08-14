@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -34,6 +35,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.uiuxdesign.uiuxdesignmaterials.BuildConfig;
 import com.uiuxdesign.uiuxdesignmaterials.R;
 import com.uiuxdesign.uiuxdesignmaterials.adapter.AdapterListMusicSong;
+import com.uiuxdesign.uiuxdesignmaterials.ads.Interstitial;
 import com.uiuxdesign.uiuxdesignmaterials.model.MusicSongOnline;
 import com.uiuxdesign.uiuxdesignmaterials.servicemusic.PlayerService;
 import com.uiuxdesign.uiuxdesignmaterials.utils.MusicUtils;
@@ -184,10 +186,10 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Music Player");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         Tools.setSystemBarColor(this);
     }
 
@@ -332,10 +334,16 @@ public class SearchActivity extends AppCompatActivity {
         PlayerService.currentlist=listsong;
 
 
+        Log.e("errr", String.valueOf(position));
+
         Intent intent = new Intent(SearchActivity.this, PlayerMusicActivity.class);
-        intent.putExtra("from","select");
+        intent.putExtra("from","search");
         intent.putExtra("pos",position);
-        startActivity(intent);
+        Interstitial interstitial = new Interstitial();
+
+
+        interstitial.showinterfb(SearchActivity.this,"263047564646166_263049504645972","ca-app-pub-3940256099942544/1033173712\n",intent);
+
 
 
 

@@ -74,8 +74,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
         }
 
-        else
-        if (from.equals("offline")){
+        else if (from.equals("offline")){
             pos=getIntent().getIntExtra("pos",0);
             getlocalbroadcaster();
             Intent playerservice= new Intent(PlayerMusicActivity.this, PlayerService.class);
@@ -96,6 +95,17 @@ public class PlayerMusicActivity extends AppCompatActivity {
             progressBarplay.setVisibility(View.GONE);
         }
 
+        else if (from.equals("search")){
+            pos=getIntent().getIntExtra("pos",0);
+            getlocalbroadcaster();
+            Intent playerservice= new Intent(PlayerMusicActivity.this, PlayerService.class);
+
+            playerservice.putExtra("from","online");
+            playerservice.putExtra("pos",pos);
+            startService(playerservice);
+
+        }
+
 
 
 
@@ -108,7 +118,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -381,6 +391,11 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
     }
     public void next (){
+        currendura.setText("");
+        totaldura.setText("");
+        title.setText("Please Wait");
+        artist.setText("");
+        imageView.setImageResource(R.color.white_transparency);
 
         Intent intent = new Intent("musicplayer");
         intent.putExtra("status", "next");
@@ -389,8 +404,11 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
     }
     public void prev (){
-
-
+        currendura.setText("");
+        totaldura.setText("");
+        title.setText("Please Wait");
+        artist.setText("");
+        imageView.setImageResource(R.color.white_transparency);
         Intent intent = new Intent("musicplayer");
         intent.putExtra("status", "prev");
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);

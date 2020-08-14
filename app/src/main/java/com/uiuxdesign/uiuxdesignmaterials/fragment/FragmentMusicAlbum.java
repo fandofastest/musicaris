@@ -74,6 +74,7 @@ public class FragmentMusicAlbum extends Fragment {
     }
 
     public void  getallgenre (){
+        listgenre.clear();
 
         listgenre.add(new MusicAlbum(R.drawable.image_1,"Alternative Rock"));
         listgenre.add(new MusicAlbum(R.drawable.image_1,"Ambient"));
