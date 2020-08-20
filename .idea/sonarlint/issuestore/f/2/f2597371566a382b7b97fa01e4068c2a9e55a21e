@@ -1,8 +1,0 @@
-
-X	java:S125a"<This block of commented-out lines of code should be removed.(æ¡¦Ã8ÍÇ‘½.
-}
-java:S1488&"`Immediately return this expression instead of assigning it to the temporary variable "fragment".(¿‹Ä8äÎÓ½.
-
-java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„³Ï’8äÎÓ½.
-X
-java:S2696~"6Make the enclosing method "static" or remove this set.(¶Ò¢úÿÿÿÿ8šö¿‘½.

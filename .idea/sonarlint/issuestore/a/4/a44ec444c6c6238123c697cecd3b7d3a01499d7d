@@ -1,159 +1,0 @@
-
-T
-java:S2696à"6Make the enclosing method "static" or remove this set.(Ê”èá8ü‚Ü½.
-Y
-java:S2696ş"6Make the enclosing method "static" or remove this set.(àù“óüÿÿÿÿ8˜÷ƒŠ¾.
-:
-java:S2386"Make this member "protected".(ëÑäÙ8ü‚Ü½.
-Y
-java:S2696ƒ"6Make the enclosing method "static" or remove this set.(„¤äÚÿÿÿÿÿ8˜÷ƒŠ¾.
-m
-java:S1104!"WMake currentlist a static final constant or non-public and provide accessors if needed.(ŸµÊõ
-G
-java:S2140§")Use "java.util.Random.nextInt()" instead.(ÍÔÒá8˜÷ƒŠ¾.
-T
-java:S2696Ë"6Make the enclosing method "static" or remove this set.(Ê”èá8˜÷ƒŠ¾.
-[	java:S106â"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8˜÷ƒŠ¾.
-Y
-java:S2696˜"6Make the enclosing method "static" or remove this set.(ßËòŒøÿÿÿÿ8ü‚Ü½.
-i
-java:S1192h"LDefine a constant instead of duplicating this literal "musicplayer" 3 times.(•…úâ8˜÷ƒŠ¾.
-X
-java:S2696M"6Make the enclosing method "static" or remove this set.(ÖØ›´ûÿÿÿÿ8ü‚Ü½.
-s
-java:S3008#"WRename this field "PLAYERSTATUS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÖâ8˜÷ƒŠ¾.
-l
-java:S1104$"VMake currentpos a static final constant or non-public and provide accessors if needed.(÷èñø
-X
-java:S2696L"6Make the enclosing method "static" or remove this set.(ôÕ‰¦ıÿÿÿÿ8˜÷ƒŠ¾.
-w
-java:S1104("UMake sessionId a static final constant or non-public and provide accessors if needed.(·Šæùÿÿÿÿ8˜÷ƒŠ¾.
-Y
-java:S2696„"6Make the enclosing method "static" or remove this set.(Á»àÏúÿÿÿÿ8˜÷ƒŠ¾.
-n
-java:S1104#"RMake REPEAT a static final constant or non-public and provide accessors if needed.(ªÖâ8˜÷ƒŠ¾.
-E
-java:S1659#")Declare "CURRENTTYPE" on a separate line.(ªÖâ8˜÷ƒŠ¾.
-X
-java:S1874¦":Remove this use of "setAudioStreamType"; it is deprecated.(Û”ê˜8ü‚Ü½.
-e
-java:S1192:"HDefine a constant instead of duplicating this literal "PLAYING" 3 times.(Ê”èá8˜÷ƒŠ¾.
-L
-java:S1444"/Make this "public static listlocal" field final(¬ÕÖ8˜÷ƒŠ¾.
-N
-java:S1444"1Make this "public static listtopsong" field final(ëÑäÙ8÷İº½.
-A
-java:S1659&"+Declare "currentartist" on a separate line.(Šğ°Œ
-Y
-java:S2696’"6Make the enclosing method "static" or remove this set.(àù“óüÿÿÿÿ8ü‚Ü½.
-Y
-java:S2696–"6Make the enclosing method "static" or remove this set.(îÓÍÁıÿÿÿÿ8ü‚Ü½.
-m
-java:S3008#"QRename this field "REPEAT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÖâ8˜÷ƒŠ¾.
-A
-java:S1659#"%Declare "SHUFFLE" on a separate line.(ªÖâ8˜÷ƒŠ¾.
-T
-java:S2696—"6Make the enclosing method "static" or remove this set.(¬…É8ü‚Ü½.
-[	java:S106÷"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8ü‚Ü½.
-H
-java:S1444#",Make this "public static REPEAT" field final(ªÖâ8˜÷ƒŠ¾.
-L
-java:S2140»")Use "java.util.Random.nextInt()" instead.(…ù€äúÿÿÿÿ8ü‚Ü½.
-o
-java:S1104&"YMake currentartist a static final constant or non-public and provide accessors if needed.(Šğ°Œ
-T
-java:S2696Ä"6Make the enclosing method "static" or remove this set.(ğ¼Ÿ´8˜÷ƒŠ¾.
-r
-java:S1104"UMake listlocal a static final constant or non-public and provide accessors if needed.(¬ÕÖ8˜÷ƒŠ¾.
-o
-java:S3776."RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Î¢È8˜÷ƒŠ¾.
-T
-java:S2696‚"6Make the enclosing method "static" or remove this set.(´»Òÿ8˜÷ƒŠ¾.
->
-java:S1659$"(Declare "currentpos" on a separate line.(÷èñø
-S
-java:S2696:"6Make the enclosing method "static" or remove this set.(Ê”èá8ü‚Ü½.
-M
-java:S1444"0Make this "public static listrecent" field final(²²ßè8Ö‚»½.
-F
-java:S1444$"0Make this "public static currentpos" field final(÷èñø
-:
-java:S2386!"Make this member "protected".(ŸµÊõ8˜÷ƒŠ¾.
-T
-java:S2696Ù"6Make the enclosing method "static" or remove this set.(ğ¼Ÿ´8˜÷ƒŠ¾.
-X
-java:S2696H"6Make the enclosing method "static" or remove this set.(ÌÁ‘µÿÿÿÿÿ8ü‚Ü½.
-N
-java:S1444#"2Make this "public static PLAYERSTATUS" field final(ªÖâ8˜÷ƒŠ¾.
-Q
-java:S1444("/Make this "public static sessionId" field final(·Šæùÿÿÿÿ8˜÷ƒŠ¾.
-:
-java:S2386"Make this member "protected".(¬ÕÖ8Ö‚»½.
-X
-java:S2696r"6Make the enclosing method "static" or remove this set.(Ò²·øşÿÿÿÿ8˜÷ƒŠ¾.
-q
-java:S1104$"[Make currentduraiton a static final constant or non-public and provide accessors if needed.(÷èñø
-:
-java:S2386""Make this member "protected".(ÂíÇ8˜÷ƒŠ¾.
-?
-java:S2386 "Make this member "protected".(Ê›™¼ûÿÿÿÿ8˜÷ƒŠ¾.
-M
-java:S1444#"1Make this "public static CURRENTTYPE" field final(ªÖâ8˜÷ƒŠ¾.
-X
-java:S2696y"6Make the enclosing method "static" or remove this set.(¨¸Íóúÿÿÿÿ8˜÷ƒŠ¾.
-T
-java:S1444 "2Make this "public static listplaylist" field final(Ê›™¼ûÿÿÿÿ8ü‚Ü½.
-r
-java:S3008#"VRename this field "CURRENTTYPE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÖâ8˜÷ƒŠ¾.
-I
-java:S1444#"-Make this "public static SHUFFLE" field final(ªÖâ8˜÷ƒŠ¾.
-{
-java:S1104""^Make currentlistoffline a static final constant or non-public and provide accessors if needed.(ÂíÇ8˜÷ƒŠ¾.
-t
-java:S1104#"XMake PLAYERSTATUS a static final constant or non-public and provide accessors if needed.(ªÖâ8˜÷ƒŠ¾.
-n
-java:S3008#"RRename this field "SHUFFLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÖâ8˜÷ƒŠ¾.
-d
-java:S11923"GDefine a constant instead of duplicating this literal "status" 3 times.(Š•†˜8˜÷ƒŠ¾.
-3
-java:S2386"Make this member "protected".(²²ßè
-K
-java:S1444$"5Make this "public static currentduraiton" field final(÷èñø
-X
-java:S1874’":Remove this use of "setAudioStreamType"; it is deprecated.(Û”ê˜8˜÷ƒŠ¾.
-z
-java:S1104 "XMake listplaylist a static final constant or non-public and provide accessors if needed.(Ê›™¼ûÿÿÿÿ8ü‚Ü½.
-q
-java:S1104&"[Make currentimageurl a static final constant or non-public and provide accessors if needed.(Šğ°Œ
-I
-java:S1444$"3Make this "public static totalduration" field final(÷èñø
-I
-java:S1444&"3Make this "public static currentartist" field final(Šğ°Œ
-s
-java:S1104#"WMake CURRENTTYPE a static final constant or non-public and provide accessors if needed.(ªÖâ8˜÷ƒŠ¾.
-G
-java:S1444!"1Make this "public static currentlist" field final(ŸµÊõ
-K
-java:S1444&"5Make this "public static currentimageurl" field final(Šğ°Œ
-@
-java:S1659#"$Declare "REPEAT" on a separate line.(ªÖâ8˜÷ƒŠ¾.
-o
-java:S1104$"YMake totalduration a static final constant or non-public and provide accessors if needed.(÷èñø
-C
-java:S1659$"-Declare "currentduraiton" on a separate line.(÷èñø
-U
-java:S1444""8Make this "public static currentlistoffline" field final(ÂíÇ8˜÷ƒŠ¾.
-C
-java:S1659&"-Declare "currentimageurl" on a separate line.(Šğ°Œ
-o
-java:S1104#"SMake SHUFFLE a static final constant or non-public and provide accessors if needed.(ªÖâ8˜÷ƒŠ¾.
-s
-java:S1104"VMake listrecent a static final constant or non-public and provide accessors if needed.(²²ßè8Ö‚»½.
-H
-java:S1444&"2Make this "public static currenttitle" field final(Šğ°Œ
-X
-java:S26967"6Make the enclosing method "static" or remove this set.(ËèĞâÿÿÿÿÿ8ü‚Ü½.
-n
-java:S1104&"XMake currenttitle a static final constant or non-public and provide accessors if needed.(Šğ°Œ
-t
-java:S1104"WMake listtopsong a static final constant or non-public and provide accessors if needed.(ëÑäÙ8÷İº½.
