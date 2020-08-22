@@ -42,7 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tools {
-
+    public static String KEYSC;
     public static String SERVERMUSIC="https://fando.id/soundcloud/get.php?id=";
 
 

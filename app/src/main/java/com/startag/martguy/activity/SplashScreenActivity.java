@@ -10,7 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.startag.martguy.R;
+
+import static com.startag.martguy.utils.Tools.KEYSC;
 
 public class SplashScreenActivity extends AppCompatActivity implements Animation.AnimationListener {
 
@@ -57,6 +64,33 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
         // start the animation
         relativeLayout.setVisibility(View.VISIBLE);
         relativeLayout.startAnimation(animFadeIn);
+        getkey();
+
+    }
+
+    public void getkey(){
+        String url="https://fando.id/soundcloud/getapi.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        KEYSC=response.replaceAll("^\"|\"$", "");
+                        System.out.println(KEYSC);
+                        // Display the first 500 characters of the response string.
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+
+
+        Volley.newRequestQueue(SplashScreenActivity.this).add(stringRequest);
+
 
     }
 

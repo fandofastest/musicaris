@@ -32,6 +32,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.startag.martguy.utils.Tools.KEYSC;
+
 public class FragmentMusicSong extends Fragment {
     AdapterListMusicSong mAdapter;
     Context context;
@@ -128,13 +130,11 @@ public class FragmentMusicSong extends Fragment {
     }
 
     public void gettopchart(){
-        String url="https://api-v2.soundcloud.com/charts?charts-top:all-music&&high_tier_only=false&kind=top&limit=100&client_id=z7xDdzwjM6kB7fmXCd06c8kU6lFNtBCT";
+        String url="https://api-v2.soundcloud.com/charts?charts-top:all-music&&high_tier_only=false&kind=top&limit=100&client_id="+KEYSC;
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
-//                linearLayout.setVisibility(View.GONE);
-//                System.out.println(response);
 
 
                 try {

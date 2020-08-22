@@ -52,6 +52,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 import static android.widget.Toast.LENGTH_LONG;
+import static com.startag.martguy.utils.Tools.KEYSC;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -197,10 +198,10 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.removeAllViews();
         String url;
         if (type.equals("genre")){
-             url="https://api-v2.soundcloud.com/charts?genre=soundcloud:genres:"+q+"&high_tier_only=false&kind=top&limit=100&client_id=z7xDdzwjM6kB7fmXCd06c8kU6lFNtBCT";
+             url="https://api-v2.soundcloud.com/charts?genre=soundcloud:genres:"+q+"&high_tier_only=false&kind=top&limit=100&client_id="+KEYSC;
         }
         else{
-             url="https://api-v2.soundcloud.com/search/tracks?q="+q+"&client_id=z7xDdzwjM6kB7fmXCd06c8kU6lFNtBCT&limit=100";
+             url="https://api-v2.soundcloud.com/search/tracks?q="+q+"&client_id="+KEYSC+"&limit=100";
 
         }
         final JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {

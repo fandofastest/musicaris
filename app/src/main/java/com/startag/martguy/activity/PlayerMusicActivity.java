@@ -73,7 +73,6 @@ public class PlayerMusicActivity extends AppCompatActivity {
         initToolbar();
         initComponent();
         from=getIntent().getStringExtra("from");
-
         Banner banner = new Banner();
         Display display = getWindowManager().getDefaultDisplay();
        LinearLayout bannerlayout=findViewById(R.id.banner_container);
