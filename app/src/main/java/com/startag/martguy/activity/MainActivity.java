@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(R.string.appbartitle);
@@ -382,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("from","online");
         intent.putExtra("pos",position);
         Interstitial interstitial = new Interstitial();
-        interstitial.showinterfb(MainActivity.this,getString(R.string.interfb),getString(R.string.interadmob),intent);
+        interstitial.showinter(MainActivity.this,getString(R.string.interadmob),intent);
 
 
 
@@ -408,7 +408,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Interstitial interstitial = new Interstitial();
-        interstitial.showinterfb(MainActivity.this,getString(R.string.interfb),getString(R.string.interadmob),intent);
+        interstitial.showinter(MainActivity.this,getString(R.string.interadmob),intent);
 
 
 

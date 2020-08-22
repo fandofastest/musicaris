@@ -2,12 +2,7 @@ package com.startag.martguy.ads;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.kaopiz.kprogresshud.KProgressHUD;
@@ -16,78 +11,16 @@ import com.startag.martguy.R;
 import static android.content.ContentValues.TAG;
 
 public class Interstitial {
-    private InterstitialAd interstitialAd;
     com.google.android.gms.ads.InterstitialAd mInterstitialAd;
     KProgressHUD hud;
 
-    public void showinterfb(final Context context, String interfb, final String inter, final Intent intent){
 
+    public  void showinter(final Context context, String inter, final Intent intent) {
         hud = KProgressHUD.create(context)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(context.getString(R.string.loadingtitle))
                 .setDetailsLabel(context.getString(R.string.loadingdesc))
-                .setMaxProgress(100)
-
-                .show();
-
-        interstitialAd = new InterstitialAd(context, interfb);
-        interstitialAd.setAdListener(new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-                // Interstitial ad displayed callback
-                Log.e(TAG, "Interstitial ad displayed.");
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                // Interstitial dismissed callback
-                Log.e(TAG, "Interstitial ad dismissed.");
-                context.startActivity(intent);
-                hud.dismiss();
-
-
-
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
-                showinter(context,inter,intent);
-                hud.dismiss();
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Interstitial ad is loaded and ready to be displayed
-                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
-                // Show the ad
-                hud.dismiss();
-                interstitialAd.show();
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-                Log.d(TAG, "Interstitial ad clicked!");
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-                Log.d(TAG, "Interstitial ad impression logged!");
-            }
-        });
-
-        // For auto play video ads, it's recommended to load the ad
-        // at least 30 seconds before it is shown
-        interstitialAd.loadAd();
-
-    }
-
-
-    public  void showinter(final Context context, String inter, final Intent intent) {
-
+                .setMaxProgress(100);
         hud.show();
 
 

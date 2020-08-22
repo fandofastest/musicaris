@@ -9,4 +9,10 @@
         android:orderInCategory="100"
         android:title="Equalizer"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/timer"
+        android:orderInCategory="100"
+        android:title="Timer"
+        app:showAsAction="never" />
 </menu>

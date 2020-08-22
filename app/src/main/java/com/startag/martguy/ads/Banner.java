@@ -6,9 +6,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.LinearLayout;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
 import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -17,39 +14,13 @@ import com.ixidev.gdpr.GDPRChecker;
 
 public class Banner  {
 
-    com.facebook.ads.AdView adViewfb;
     AdView mAdView;
 
     public  void ShowBannerAds(Context context, LinearLayout mAdViewLayout,String bannerfb,String banneradmob,Display display) {
 
 
 
-        adViewfb = new com.facebook.ads.AdView(context, bannerfb, com.facebook.ads.AdSize.BANNER_HEIGHT_50);
 
-        adViewfb.setAdListener(new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-
-
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-        });
-
-        adViewfb.loadAd();
 
 
         mAdView  = new AdView(context);
@@ -72,13 +43,8 @@ public class Banner  {
         mAdView.loadAd(builder.build());
 //        mAdViewLayout.addView(mAdView);
         System.out.println(bannerfb);
-        if (bannerfb.equals("")){
-            mAdViewLayout.addView(mAdView);
 
-        }
-        else {
-            mAdViewLayout.addView(adViewfb);
-        }
+            mAdViewLayout.addView(mAdView);
 
 
 

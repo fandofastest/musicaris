@@ -77,7 +77,6 @@ public class SearchActivity extends AppCompatActivity {
     // Handler to update UI timer, progress bar etc,.
     private Handler mHandler = new Handler();
 
-    //private SongsManager songManager;
     private MusicUtils utils;
 
 
@@ -224,37 +223,13 @@ public class SearchActivity extends AppCompatActivity {
                             listModalClass.setDuration(jsonObject.getString("full_duration"));
                             listModalClass.setType("online");
                             listModalClass.setArtist(q);
-
-
-
-//                        System.out.println(jsonArray3);
-
-
-                            listmysong.add(listModalClass);
-//
-
-
-
-//                        Toast.makeText(getActivity(),id,Toast.LENGTH_LONG).show();
-
+                         listmysong.add(listModalClass);
 
                         }
-
-
-
-
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }}
-
-
-
-
-
-
-
-
 
                else if (type.equals("search")){
                     try {
@@ -279,20 +254,7 @@ public class SearchActivity extends AppCompatActivity {
                                 listModalClass.setArtist("Artist");
 
                             }
-
-
-
-
-
-
-
-
-                            listmysong.add(listModalClass);
-//
-//                        System.out.println(jsonArray1);
-
-
-//                        Toast.makeText(getActivity(),id,Toast.LENGTH_LONG).show();
+                         listmysong.add(listModalClass);
 
 
                         }
@@ -329,27 +291,13 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void playmusic (int position ,List<MusicSongOnline> listsong){
-
         PlayerService.currentlist=listsong;
-
-
         Log.e("errr", String.valueOf(position));
-
         Intent intent = new Intent(SearchActivity.this, PlayerMusicActivity.class);
         intent.putExtra("from","search");
         intent.putExtra("pos",position);
         Interstitial interstitial = new Interstitial();
-
-
-        interstitial.showinterfb(SearchActivity.this,getString(R.string.interfb),getString(R.string.interadmob),intent);
-
-
-
-
-
-
-
-
+        interstitial.showinter(SearchActivity.this,getString(R.string.interadmob),intent);
 
     }
 

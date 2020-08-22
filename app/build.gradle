@@ -56,7 +56,6 @@ dependencies {
 
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.github.bullheadandplato:AndroidEqualizer:2.1'
-    implementation 'com.facebook.android:audience-network-sdk:5.11.0'
     implementation 'com.google.android.gms:play-services-ads:19.3.0'
     implementation 'com.github.ixiDev:GDPRChecker:v0.2'
     implementation 'com.crowdfire.cfalertdialog:cfalertdialog:1.1.0'

@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.annotation.SuppressLint;
+import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -25,12 +26,11 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.bullhead.equalizer.DialogEqualizerFragment;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
+
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -41,6 +41,8 @@ import com.startag.martguy.ads.Banner;
 import com.startag.martguy.servicemusic.PlayerService;
 import com.startag.martguy.utils.MusicUtils;
 import com.startag.martguy.utils.Tools;
+
+import java.util.Calendar;
 
 import static android.content.ContentValues.TAG;
 import static com.startag.martguy.servicemusic.PlayerService.sessionId;
@@ -55,7 +57,6 @@ public class PlayerMusicActivity extends AppCompatActivity {
     ImageButton repeat,shuffle;
     ImageView imageView;
     private SeekBar seekBar;
-    private InterstitialAd interstitialAd;
     com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 
     // Handler to update UI timer, progress bar etc,.
@@ -141,7 +142,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
@@ -376,6 +377,8 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
                     if (item.getTitle().equals("Equalizer")){
                     showeq();
+                    }else if (item.getTitle().equals("Timer")){
+                        settimerdialog();
                     }
 
                     return true;
@@ -385,6 +388,34 @@ public class PlayerMusicActivity extends AppCompatActivity {
             popupMenu.show();
         }
         return super.onOptionsItemSelected(item);
+        }
+
+
+    public void settimerdialog(){
+        Calendar mcurrentTime = Calendar.getInstance();
+        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mcurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(PlayerMusicActivity.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+
+                int jammenit=selectedHour*60;
+                int jamtotal=jammenit+selectedMinute;
+                long jamdetik =jamtotal*60*1000;
+
+                Intent intent = new Intent("musicplayer");
+                intent.putExtra("status", "settimer");
+                intent.putExtra("end",jamdetik);
+                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
+
+
+                Toast.makeText(getApplicationContext(),"Timer set : "+selectedHour + "Hours " + selectedMinute+" Minutes",Toast.LENGTH_LONG).show();
+
+            }
+        }, hour, minute, true);//Yes 24 hour time
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
     }
 
     public void  showeq(){
@@ -393,7 +424,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
 
         if (PlayerService.PLAYERSTATUS.equals("PLAYING")){
-            showinterfb(getString(R.string.interfb),getString(R.string.interadmob));
+            showinter(getString(R.string.interadmob));
 
         }
 
@@ -474,73 +505,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
     }
 
-    public void showinterfb( String interfb, final String inter){
 
-        hud.show();
-
-        interstitialAd = new InterstitialAd(PlayerMusicActivity.this, interfb);
-        interstitialAd.setAdListener(new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-                // Interstitial ad displayed callback
-                Log.e(TAG, "Interstitial ad displayed.");
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                hud.dismiss();
-                // Interstitial dismissed callback
-                Log.e(TAG, "Interstitial ad dismissed.");
-                DialogEqualizerFragment fragment = DialogEqualizerFragment.newBuilder()
-                        .setAudioSessionId(sessionId)
-                        .themeColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimary))
-                        .textColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.grey_1000))
-                        .accentAlpha(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccentLight))
-                        .darkColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimaryDark))
-                        .setAccentColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccent))
-                        .build();
-                fragment.show(getSupportFragmentManager(), "eq");
-
-
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
-                showinter(inter);
-                hud.dismiss();
-
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Interstitial ad is loaded and ready to be displayed
-                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
-                // Show the ad
-                interstitialAd.show();
-                hud.dismiss();
-
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-                Log.d(TAG, "Interstitial ad clicked!");
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-                Log.d(TAG, "Interstitial ad impression logged!");
-            }
-        });
-
-        // For auto play video ads, it's recommended to load the ad
-        // at least 30 seconds before it is shown
-        interstitialAd.loadAd();
-
-    }
 
 
     public  void showinter( String inter) {

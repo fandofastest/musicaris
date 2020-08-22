@@ -9,7 +9,9 @@ import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -98,6 +100,27 @@ public class PlayerService extends Service {
                     }
 
                 }
+
+                else if (status.equals("settimer")){
+                    Long end= intent.getLongExtra("end",0);
+//                    Toast.makeText(getApplicationContext(),"Timer set : "+end,Toast.LENGTH_LONG).show();
+
+                    new CountDownTimer(end, 1000) {
+
+
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        public void onFinish() {
+                            PLAYERSTATUS="STOPING";
+                            mp.release();
+
+
+                        }
+                    }.start();
+                }
+
 
 
             }

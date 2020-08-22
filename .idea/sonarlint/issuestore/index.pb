@@ -33,3 +33,7 @@ k
 ;app/src/main/java/com/startag/martguy/utils/MusicUtils.java,2\1\21b57f281f0710bf9db74f98bc31e6c7e5239662
 k
 ;app/src/main/java/com/startag/martguy/ads/Interstitial.java,2\2\22dddffa92be85f5b6301f30ac6e98cdee5ac265
+r
+Bapp/src/main/java/com/startag/martguy/activity/SearchActivity.java,3\5\353f2101d3c757b82b42f10f3a8a7d9db7bd2a0c
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
