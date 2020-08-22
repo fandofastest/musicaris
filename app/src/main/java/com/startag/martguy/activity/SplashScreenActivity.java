@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.startag.martguy.R;
+import com.startag.martguy.ads.Interstitial;
 
 import static com.startag.martguy.utils.Tools.KEYSC;
 
@@ -38,10 +39,25 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
             public void run() {
                 // This method will be executed once the timer is over
                 Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
+                Interstitial interstitial = new Interstitial();
+                interstitial.showinter(SplashScreenActivity.this,getString(R.string.interadmob),i);
+                interstitial.setCustomObjectListener(new Interstitial.MyCustomObjectListener() {
+                    @Override
+                    public void onAdsfinish() {
+                        finish();
+                    }
+
+                    @Override
+                    public void onRewardOk() {
+
+                    }
+                });
+
             }
         }, 5000);
+
+
+
 
         View decorView = getWindow().getDecorView();
 
@@ -107,18 +123,6 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
 
     public void onAnimationEnd(Animation animation) {
 
-        // check if user is already logged in
-        // i.e. auth token is present or not
-        //String token = preferences.getString("userEmail", DEFAULT);
-        // means user is logged in token was found
-//        if (){
-//
-//        }
-//        else {
-//            Intent intent = new Intent(SplasScreenActivity.this, CategoryListActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
     }
 
     @Override

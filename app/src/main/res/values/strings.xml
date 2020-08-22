@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">UiUxDesignMaterials</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="interfb">263047564646166_263049504645972</string>
     <string name="interadmob">ca-app-pub-3940256099942544/1033173712</string>
     <string name="admobbanner">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="fbbanner"></string>
     <string name="loadingtitle">Please wait</string>
     <string name="loadingdesc">Downloading data</string>
     <string name="appbartitle">Music Player</string>

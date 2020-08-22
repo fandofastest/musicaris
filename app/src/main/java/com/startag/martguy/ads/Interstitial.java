@@ -14,15 +14,26 @@ public class Interstitial {
     com.google.android.gms.ads.InterstitialAd mInterstitialAd;
     KProgressHUD hud;
 
+    public interface MyCustomObjectListener {
+        public void onAdsfinish();
+        public void onRewardOk();
+    }
+
+    private MyCustomObjectListener listener;
+
+    public void setCustomObjectListener(MyCustomObjectListener listener) {
+        this.listener = listener;
+    }
+
+
 
     public  void showinter(final Context context, String inter, final Intent intent) {
         hud = KProgressHUD.create(context)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(context.getString(R.string.loadingtitle))
                 .setDetailsLabel(context.getString(R.string.loadingdesc))
-                .setMaxProgress(100);
-        hud.show();
-
+                .setMaxProgress(100)
+                .show();
 
         mInterstitialAd = new com.google.android.gms.ads.InterstitialAd(context);
         mInterstitialAd.setAdUnitId(inter);
@@ -40,6 +51,8 @@ public class Interstitial {
 
                 context.startActivity(intent);
                 hud.dismiss();
+                listener.onAdsfinish();
+
 
                 // Code to be executed when an ad request fails.
             }
@@ -62,6 +75,7 @@ public class Interstitial {
             @Override
             public void onAdClosed() {
                 context.startActivity(intent);
+                listener.onAdsfinish();
                 hud.dismiss();
                 // Code to be executed when the interstitial ad is closed.
             }

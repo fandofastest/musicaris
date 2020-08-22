@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager view_pager;
     private TabLayout tab_layout;
-    androidx.appcompat.widget.SearchView mysearchview;
 
     private ImageButton bt_play;
     private ProgressBar song_progressbar;
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         bannerlayout=findViewById(R.id.banner_container);
         Banner banner = new Banner();
         Display display = getWindowManager().getDefaultDisplay();
-        banner.ShowBannerAds(MainActivity.this,bannerlayout,getString(R.string.fbbanner),getString(R.string.admobbanner),display);
+        banner.ShowBannerAds(MainActivity.this,bannerlayout,getString(R.string.admobbanner),display);
 
 
 
@@ -283,8 +282,9 @@ public class MainActivity extends AppCompatActivity {
                 .addButton(getString(R.string.quitbutton), -1, -1, CFAlertDialog.CFAlertActionStyle.POSITIVE, CFAlertDialog.CFAlertActionAlignment.END, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finishAffinity();
                         finish();
+                        finishAffinity();
+                        System.exit(0);
 
                     }
                 });

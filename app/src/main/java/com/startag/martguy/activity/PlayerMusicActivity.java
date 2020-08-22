@@ -78,7 +78,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
         Display display = getWindowManager().getDefaultDisplay();
        LinearLayout bannerlayout=findViewById(R.id.banner_container);
 
-        banner.ShowBannerAds(PlayerMusicActivity.this,bannerlayout,getString(R.string.fbbanner),getString(R.string.admobbanner),display);
+        banner.ShowBannerAds(PlayerMusicActivity.this,bannerlayout,getString(R.string.admobbanner),display);
 
 
         hud = KProgressHUD.create(PlayerMusicActivity.this)
@@ -524,7 +524,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                hud.show();
+                hud.dismiss();
                 DialogEqualizerFragment fragment = DialogEqualizerFragment.newBuilder()
                         .setAudioSessionId(sessionId)
                         .themeColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimary))
@@ -557,7 +557,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
             @Override
             public void onAdClosed() {
-                hud.show();
+                hud.dismiss();
                 DialogEqualizerFragment fragment = DialogEqualizerFragment.newBuilder()
                         .setAudioSessionId(sessionId)
                         .themeColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimary))

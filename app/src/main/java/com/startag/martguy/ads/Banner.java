@@ -16,13 +16,7 @@ public class Banner  {
 
     AdView mAdView;
 
-    public  void ShowBannerAds(Context context, LinearLayout mAdViewLayout,String bannerfb,String banneradmob,Display display) {
-
-
-
-
-
-
+    public  void ShowBannerAds(Context context, LinearLayout mAdViewLayout,String banneradmob,Display display) {
         mAdView  = new AdView(context);
         AdSize adSize = getAdSize(context,display);
 
@@ -36,19 +30,8 @@ public class Banner  {
             extras.putString("npa", "1");
             builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
         } // else do nothing , it will load PERSONALIZED ads
-
-
-
-
         mAdView.loadAd(builder.build());
-//        mAdViewLayout.addView(mAdView);
-        System.out.println(bannerfb);
-
             mAdViewLayout.addView(mAdView);
-
-
-
-
 
 
     }
