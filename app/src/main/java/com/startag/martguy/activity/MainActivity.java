@@ -35,6 +35,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.crowdfire.cfalertdialog.CFAlertDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.ixidev.gdpr.GDPRChecker;
 import com.startag.martguy.R;
 import com.startag.martguy.adapter.AdapterListMusicSong;
 import com.startag.martguy.ads.Banner;
@@ -88,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         parent_view = findViewById(R.id.parent_view);
+
+        new GDPRChecker()
+                .withContext(MainActivity.this)
+                .withPrivacyUrl(getString(R.string.termsurl)) // your privacy url
+                .withPublisherIds(getString(R.string.admobappid)) // your admob account Publisher id
+                .withTestMode("9424DF76F06983D1392E609FC074596C") // remove this on real project
+                .check();
+
+
         initToolbar();
         initComponent();
         initrealm();

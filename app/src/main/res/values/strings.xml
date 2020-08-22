@@ -10,4 +10,6 @@
     <string name="quittitle">Are You Sure to Quit App ?</string>
     <string name="quitmessage">Music Will Stopped if Quit App, Just Press Home button if u wanna still listening music</string>
     <string name="quitbutton">Sure Quit</string>
+    <string name="termsurl">https://policies.google.com/terms</string>
+    <string name="admobappid">ca-app-pub-3940256099942544~3347511713</string>
 </resources>

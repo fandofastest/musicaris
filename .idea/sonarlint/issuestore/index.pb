@@ -37,3 +37,7 @@ r
 Bapp/src/main/java/com/startag/martguy/activity/SearchActivity.java,3\5\353f2101d3c757b82b42f10f3a8a7d9db7bd2a0c
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+f
+6app/src/main/java/com/startag/martguy/utils/Myapp.java,c\6\c60e2aa002d7badbab9f9226115c8a3a00bb33d7
+e
+5app/src/main/java/com/startag/martguy/ads/Banner.java,0\8\085bc2fca07330cc8a3ac696cf572f3b9b54dccf
