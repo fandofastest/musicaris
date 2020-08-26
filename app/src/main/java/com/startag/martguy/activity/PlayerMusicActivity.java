@@ -1,5 +1,6 @@
 package com.startag.martguy.activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -12,10 +13,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,12 +57,12 @@ import static com.startag.martguy.servicemusic.PlayerService.totalduration;
 public class PlayerMusicActivity extends AppCompatActivity {
 
     private View parent_view;
-    private FloatingActionButton bt_play;
-    private ProgressBar song_progressbar,progressBarplay;
+    private ImageButton bt_play;
     TextView title,artist,totaldura,currendura;
     ImageButton repeat,shuffle;
     ImageView imageView;
     private SeekBar seekBar;
+    private  ProgressBar progressBar;
     com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 
     // Handler to update UI timer, progress bar etc,.
@@ -121,13 +124,12 @@ public class PlayerMusicActivity extends AppCompatActivity {
         }
 
         else if (from.equals("player")){
-
+            progressBar.setVisibility(View.GONE);
             bt_play.setVisibility(View.VISIBLE);
             bt_play.setImageResource(R.drawable.ic_pause);
             title.setText(PlayerService.currenttitle);
             artist.setText(PlayerService.currentartist);
             mHandler.post(mUpdateTimeTask);
-            progressBarplay.setVisibility(View.GONE);
         }
 
         else if (from.equals("search")){
@@ -154,23 +156,24 @@ public class PlayerMusicActivity extends AppCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
-        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
+        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.grey_50), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setTitle(null);
         Tools.setSystemBarColor(this, android.R.color.white);
         Tools.setSystemBarLight(this);
     }
 
     private void initComponent() {
-        seekBar=findViewById(R.id.seekbar);
-
+        seekBar=findViewById(R.id.seek_song_progressbar);
+        progressBar=findViewById(R.id.progressplay);
         parent_view = findViewById(R.id.parent_view);
-        bt_play = (FloatingActionButton) findViewById(R.id.bt_play);
+        bt_play =  findViewById(R.id.bt_play);
         shuffle=findViewById(R.id.bt_shuffle);
         repeat=findViewById(R.id.bt_repeat);
-        totaldura=findViewById(R.id.timetotal);
-        currendura=findViewById(R.id.timenow);
+        totaldura=findViewById(R.id.tv_song_total_duration);
+        currendura=findViewById(R.id.tv_current);
         imageView=findViewById(R.id.image);
 
 
@@ -221,14 +224,12 @@ public class PlayerMusicActivity extends AppCompatActivity {
         if (PlayerService.REPEAT.equals("OFF")){
             repeat.setColorFilter(R.color.grey_700);
         }
-        song_progressbar = (ProgressBar) findViewById(R.id.song_progressbar);
         title=findViewById(R.id.txttitle);
         artist=findViewById(R.id.txtartist);
-        progressBarplay=findViewById(R.id.progressplay);
 
         // set Progress bar values
-        song_progressbar.setProgress(0);
-        song_progressbar.setMax(MusicUtils.MAX_PROGRESS);
+        seekBar.setProgress(0);
+        seekBar.setMax(MusicUtils.MAX_PROGRESS);
 
 
 
@@ -264,7 +265,6 @@ public class PlayerMusicActivity extends AppCompatActivity {
         switch (id) {
             case R.id.bt_prev: {
               prev();
-              progressBarplay.setVisibility(View.VISIBLE);
               bt_play.setVisibility(View.GONE);
                 Snackbar.make(parent_view, "Previous", Snackbar.LENGTH_SHORT).show();
                 break;
@@ -272,7 +272,6 @@ public class PlayerMusicActivity extends AppCompatActivity {
             case R.id.bt_next: {
                next();
                 bt_play.setVisibility(View.GONE);
-                progressBarplay.setVisibility(View.VISIBLE);
                 Snackbar.make(parent_view, "Next", Snackbar.LENGTH_SHORT).show();
                 break;
             }
@@ -355,7 +354,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
         totaldura.setText(utils.milliSecondsToTimer(totalduration));
         // Updating progress bar
         int progress = (int) (utils.getProgressSeekBar(PlayerService.currentduraiton, totalduration));
-        song_progressbar.setProgress(progress);
+
         seekBar.setProgress(progress);
     }
 
@@ -370,17 +369,19 @@ public class PlayerMusicActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_setting_round, menu);
-        Tools.changeMenuIconColor(menu, getResources().getColor(R.color.colorPrimary));
+        Tools.changeMenuIconColor(menu, getResources().getColor(R.color.grey_50));
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        View view =findViewById(R.id.mv);
+        View view =findViewById(R.id.toolbar);
         if (item.getItemId() == android.R.id.home) {
             finish();
         } else {
             PopupMenu popupMenu = new PopupMenu(PlayerMusicActivity.this,view );
+            popupMenu.setGravity(Gravity.RIGHT);
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
@@ -455,7 +456,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 String status = intent.getStringExtra("status");
                 if (status.equals("playing")){
-                    progressBarplay.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
                     bt_play.setVisibility(View.VISIBLE);
                     bt_play.setImageResource(R.drawable.ic_pause);
                     title.setText(PlayerService.currenttitle);
@@ -495,7 +496,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
         title.setText("Please Wait");
         artist.setText("");
         imageView.setImageResource(R.color.white_transparency);
-
+        progressBar.setVisibility(View.VISIBLE);
         Intent intent = new Intent("musicplayer");
         intent.putExtra("status", "next");
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
@@ -507,6 +508,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
         totaldura.setText("");
         title.setText("Please Wait");
         artist.setText("");
+        progressBar.setVisibility(View.VISIBLE);
         imageView.setImageResource(R.color.white_transparency);
         Intent intent = new Intent("musicplayer");
         intent.putExtra("status", "prev");

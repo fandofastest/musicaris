@@ -43,7 +43,7 @@ public class FragmentMusicAlbum extends Fragment {
 
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         recyclerView.addItemDecoration(new SpacingItemDecoration(2, Tools.dpToPx(getActivity(), 4), true));
         recyclerView.setHasFixedSize(true);
 

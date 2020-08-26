@@ -45,18 +45,18 @@ public class AdapterGridMusicAlbum extends RecyclerView.Adapter<RecyclerView.Vie
         public TextView brief;
         public LinearLayout lyt_bottom;
         public View lyt_parent;
-        LinearLayout bggenre;
-        TextView genreicon;
+//        LinearLayout bggenre;
+//        TextView genreicon;
 
         public OriginalViewHolder(View v) {
             super(v);
 //            image = (ImageView) v.findViewById(R.id.image);
             name = (TextView) v.findViewById(R.id.name);
-            bggenre=v.findViewById(R.id.bggenre);
+//            bggenre=v.findViewById(R.id.lyt_parent);
 
-//            lyt_bottom = (LinearLayout) v.findViewById(R.id.lyt_bottom);
+            lyt_bottom = (LinearLayout) v.findViewById(R.id.lyt_bottom);
             lyt_parent = (View) v.findViewById(R.id.lyt_parent);
-            genreicon=v.findViewById(R.id.genreicon);
+//            genreicon=v.findViewById(R.id.genreicon);
         }
     }
 
@@ -76,11 +76,11 @@ public class AdapterGridMusicAlbum extends RecyclerView.Adapter<RecyclerView.Vie
             OriginalViewHolder view = (OriginalViewHolder) holder;
             view.name.setText(obj.getGenrename());
             Random rnd = new Random();
-            int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-            view.bggenre.setBackgroundColor(color);
+            int color = Color.argb(250, rnd.nextInt(50), rnd.nextInt(50), rnd.nextInt(50));
+            view.lyt_bottom.setBackgroundColor(color);
             char ch1 = obj.getGenrename().charAt(0);
 
-            view.genreicon.setText(String.valueOf(ch1));
+//            view.genreicon.setText(String.valueOf(ch1));
 
 //            view.image.setImageResource(obj.getImage());
             view.lyt_parent.setOnClickListener(new View.OnClickListener() {
