@@ -44,9 +44,12 @@ import com.startag.martguy.utils.Tools;
 
 import java.util.Calendar;
 
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
+
 import static android.content.ContentValues.TAG;
 import static com.startag.martguy.servicemusic.PlayerService.sessionId;
 import static com.startag.martguy.servicemusic.PlayerService.totalduration;
+
 
 public class PlayerMusicActivity extends AppCompatActivity {
 
@@ -66,6 +69,13 @@ public class PlayerMusicActivity extends AppCompatActivity {
     private MusicUtils utils;
     int pos;
     KProgressHUD hud;
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

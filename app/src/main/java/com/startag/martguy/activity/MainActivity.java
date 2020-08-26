@@ -55,6 +55,7 @@ import com.startag.martguy.utils.Tools;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -83,10 +84,15 @@ public class MainActivity extends AppCompatActivity {
     SectionsPagerAdapter adapter;
     Realm realm;
     RealmHelper realmHelper;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         parent_view = findViewById(R.id.parent_view);
 
@@ -254,11 +260,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(final ViewPager viewPager) {
        adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(PlaylistsFragment.newInstance(), "PLAYLIST");
         adapter.addFragment(FragmentMusicSong.newInstance(), "SONGS");
+        adapter.addFragment(LocalFragment.newInstance(), "LOCAL MUSIC");
         adapter.addFragment(FragmentMusicAlbum.newInstance(), "GENRE");
         adapter.addFragment(RecentFragment.newInstance(), "RECENT");
-        adapter.addFragment(PlaylistsFragment.newInstance(), "PLAYLIST");
-        adapter.addFragment(LocalFragment.newInstance(), "LOCAL MUSIC");
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

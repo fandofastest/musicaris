@@ -41,3 +41,5 @@ f
 6app/src/main/java/com/startag/martguy/utils/Myapp.java,c\6\c60e2aa002d7badbab9f9226115c8a3a00bb33d7
 e
 5app/src/main/java/com/startag/martguy/ads/Banner.java,0\8\085bc2fca07330cc8a3ac696cf572f3b9b54dccf
+k
+;app/src/main/java/com/startag/martguy/model/MusicAlbum.java,1\6\16a937422f856ca3e0f3f19f69742f2a7944bc0f

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.startag.martguy.BuildConfig;
 import com.startag.martguy.R;
@@ -30,6 +31,7 @@ import com.startag.martguy.servicemusic.PlayerService;
 public class PlaylistsFragment extends Fragment {
     AdapterListMusicSong mAdapter;
     Context context;
+    TextView empty;
 
     public PlaylistsFragment() {
     }
@@ -41,9 +43,9 @@ public class PlaylistsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_music_song, container, false);
+        final View root = inflater.inflate(R.layout.fragment_platlists, container, false);
 
-
+        empty=root.findViewById(R.id.nf);
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
@@ -124,6 +126,9 @@ public class PlaylistsFragment extends Fragment {
 
         if (context instanceof MainActivity) {
             PlayerService.listplaylist=((MainActivity)context).getplaylists();
+            if (PlayerService.listplaylist.size()==0){
+                empty.setVisibility(View.VISIBLE);
+            }
             mAdapter.notifyDataSetChanged();
 
 
