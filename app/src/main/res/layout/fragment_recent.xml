@@ -7,4 +7,5 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical"
     android:scrollingCache="true"
+    android:layout_marginTop="10dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
