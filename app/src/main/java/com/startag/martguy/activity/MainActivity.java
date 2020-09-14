@@ -404,12 +404,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
     }
 
     public void playmusicoffline (int position ,List<MusicSongOffline> listsong){
