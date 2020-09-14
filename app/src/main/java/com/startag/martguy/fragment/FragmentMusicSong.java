@@ -53,7 +53,7 @@ public class FragmentMusicSong extends Fragment {
 
 
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false));
         recyclerView.setHasFixedSize(true);
 
         context=getContext();
