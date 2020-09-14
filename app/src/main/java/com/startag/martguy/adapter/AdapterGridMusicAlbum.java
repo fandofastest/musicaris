@@ -76,7 +76,7 @@ public class AdapterGridMusicAlbum extends RecyclerView.Adapter<RecyclerView.Vie
             OriginalViewHolder view = (OriginalViewHolder) holder;
             view.name.setText(obj.getGenrename());
             Random rnd = new Random();
-            int color = Color.argb(250, rnd.nextInt(50), rnd.nextInt(50), rnd.nextInt(50));
+            int color = Color.argb(200, rnd.nextInt(200), rnd.nextInt(200), rnd.nextInt(200));
             view.lyt_bottom.setBackgroundColor(color);
             char ch1 = obj.getGenrename().charAt(0);
 

@@ -261,10 +261,10 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(final ViewPager viewPager) {
        adapter = new SectionsPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(FragmentMusicSong.newInstance(), "DISCOVER");
-        adapter.addFragment(FragmentMusicAlbum.newInstance(), "GENRE");
         adapter.addFragment(LocalFragment.newInstance(), "LOCAL MUSIC");
         adapter.addFragment(PlaylistsFragment.newInstance(), "PLAYLIST");
         adapter.addFragment(RecentFragment.newInstance(), "RECENT");
+        adapter.addFragment(FragmentMusicAlbum.newInstance(), "GENRE");
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

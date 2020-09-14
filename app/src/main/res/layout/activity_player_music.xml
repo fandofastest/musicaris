@@ -35,12 +35,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="470dp"
 
-            android:foreground="@color/overlay_dark_30"
+            android:foreground="@color/overlay_dark_10"
             android:scaleType="centerCrop"
             android:src="@drawable/photo_singer_male" />
         <LinearLayout
