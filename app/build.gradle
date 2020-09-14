@@ -64,6 +64,8 @@ dependencies {
     implementation 'com.google.android.ads.consent:consent-library:1.0.8'
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:2.0.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
 
 

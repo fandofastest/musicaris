@@ -24,7 +24,7 @@ public class Myapp extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/ChangaOne-Regular.ttf")
+                                .setDefaultFontPath("fonts/Righteous-Regular.ttf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
