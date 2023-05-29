@@ -38,8 +38,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.ixidev.gdpr.GDPRChecker;
 import com.startag.martguy.R;
 import com.startag.martguy.adapter.AdapterListMusicSong;
+import com.startag.martguy.ads.Ads;
 import com.startag.martguy.ads.Banner;
-import com.startag.martguy.ads.Interstitial;
 import com.startag.martguy.fragment.FragmentMusicAlbum;
 import com.startag.martguy.fragment.FragmentMusicSong;
 import com.startag.martguy.fragment.LocalFragment;
@@ -386,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void playmusic (int position ,List<MusicSongOnline> listsong){
+    public void playmusic (final int position , List<MusicSongOnline> listsong){
 
         PlayerService.currentlist=listsong;
 
@@ -394,31 +394,40 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
-        intent.putExtra("from","online");
-        intent.putExtra("pos",position);
-        Interstitial interstitial = new Interstitial();
-        interstitial.showinter(MainActivity.this,getString(R.string.interadmob),intent);
 
-
+        Ads ads= new Ads(this);
+        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
+            @Override
+            public void onAdsfinish() {
+                Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
+                intent.putExtra("from","online");
+                intent.putExtra("pos",position);
+                startActivity(intent);
+            }
+        });
+        ads.showinteradmob(getString(R.string.interadmob));
 
 
 
     }
 
-    public void playmusicoffline (int position ,List<MusicSongOffline> listsong){
+    public void playmusicoffline (final int position , List<MusicSongOffline> listsong){
 
         PlayerService.currentlistoffline=listsong;
 
 
-        Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
-        intent.putExtra("from","offline");
-        intent.putExtra("pos",position);
 
+        Ads ads= new Ads(this);
+        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
+            @Override
+            public void onAdsfinish() {
+                Intent intent = new Intent(MainActivity.this, PlayerMusicActivity.class);
+                intent.putExtra("from","offline");
+                intent.putExtra("pos",position);
+                startActivity(intent);
 
-
-        Interstitial interstitial = new Interstitial();
-        interstitial.showinter(MainActivity.this,getString(R.string.interadmob),intent);
+            }
+        });
 
 
 

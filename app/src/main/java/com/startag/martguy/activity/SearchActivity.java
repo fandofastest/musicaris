@@ -33,7 +33,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.startag.martguy.BuildConfig;
 import com.startag.martguy.R;
 import com.startag.martguy.adapter.AdapterListMusicSong;
-import com.startag.martguy.ads.Interstitial;
+import com.startag.martguy.ads.Ads;
 import com.startag.martguy.model.MusicSongOnline;
 import com.startag.martguy.servicemusic.PlayerService;
 import com.startag.martguy.utils.MusicUtils;
@@ -290,14 +290,25 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-    public void playmusic (int position ,List<MusicSongOnline> listsong){
+    public void playmusic (final int position , List<MusicSongOnline> listsong){
         PlayerService.currentlist=listsong;
         Log.e("errr", String.valueOf(position));
-        Intent intent = new Intent(SearchActivity.this, PlayerMusicActivity.class);
-        intent.putExtra("from","search");
-        intent.putExtra("pos",position);
-        Interstitial interstitial = new Interstitial();
-        interstitial.showinter(SearchActivity.this,getString(R.string.interadmob),intent);
+
+
+        Ads ads= new Ads(this);
+        ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
+            @Override
+            public void onAdsfinish() {
+                Intent intent = new Intent(SearchActivity.this, PlayerMusicActivity.class);
+                intent.putExtra("from","search");
+                intent.putExtra("pos",position);
+                startActivity(intent);
+
+            }
+        });
+        ads.showinteradmob(getString(R.string.interadmob));
+
+
 
     }
 

@@ -16,7 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.startag.martguy.R;
-import com.startag.martguy.ads.Interstitial;
+import com.startag.martguy.ads.Ads;
 
 import static com.startag.martguy.utils.Tools.KEYSC;
 
@@ -38,20 +38,19 @@ public class SplashScreenActivity extends AppCompatActivity implements Animation
             @Override
             public void run() {
                 // This method will be executed once the timer is over
-                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
-                Interstitial interstitial = new Interstitial();
-                interstitial.showinter(SplashScreenActivity.this,getString(R.string.interadmob),i);
-                interstitial.setCustomObjectListener(new Interstitial.MyCustomObjectListener() {
+                final Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
+
+                Ads ads= new Ads(SplashScreenActivity.this);
+                ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
                     @Override
                     public void onAdsfinish() {
-                        finish();
-                    }
-
-                    @Override
-                    public void onRewardOk() {
+                       startActivity(i);
 
                     }
                 });
+                ads.showinteradmob(getString(R.string.interadmob));
+
+
 
             }
         }, 5000);

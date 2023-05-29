@@ -109,26 +109,17 @@ public class Tools {
         }
     }
 
-    public static void displayImage(Context ctx, ImageView img, String imgurl) {
-        try {
-            Glide.with(ctx).load(imgurl)
-                    .crossFade()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .into(img);
-        } catch (Exception e) {
-        }
-    }
 
     public static void displayImageRoundlocal(final Context ctx, final ImageView img, @DrawableRes int drawable) {
         try {
-            Glide.with(ctx).load(drawable).asBitmap().centerCrop().into(new BitmapImageViewTarget(img) {
+            Glide.with(ctx).load(drawable).centerCrop().into(new BitmapImageViewTarget(img) {
                 @Override
                 protected void setResource(Bitmap resource) {
                     RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(ctx.getResources(), resource);
                     circularBitmapDrawable.setCircular(true);
                     img.setImageDrawable(circularBitmapDrawable);
                 }
-            });
+            }.getView());
         } catch (Exception e) {
         }
     }
@@ -136,7 +127,6 @@ public class Tools {
     public static void displayImageOriginal(Context ctx, ImageView img, String url) {
         try {
             Glide.with(ctx).load(url)
-                    .crossFade()
                     .error(R.drawable.img_social_android)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(img);

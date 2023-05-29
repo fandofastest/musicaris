@@ -40,6 +40,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.startag.martguy.R;
+import com.startag.martguy.ads.Ads;
 import com.startag.martguy.ads.Banner;
 import com.startag.martguy.servicemusic.PlayerService;
 import com.startag.martguy.utils.MusicUtils;
@@ -63,7 +64,6 @@ public class PlayerMusicActivity extends AppCompatActivity {
     ImageView imageView;
     private SeekBar seekBar;
     private  ProgressBar progressBar;
-    com.google.android.gms.ads.InterstitialAd mInterstitialAd;
 
     // Handler to update UI timer, progress bar etc,.
     private Handler mHandler = new Handler();
@@ -435,7 +435,15 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
 
         if (PlayerService.PLAYERSTATUS.equals("PLAYING")){
-            showinter(getString(R.string.interadmob));
+            Ads ads= new Ads(PlayerMusicActivity.this);
+            ads.setCustomObjectListener(new Ads.MyCustomObjectListener() {
+                @Override
+                public void onAdsfinish() {
+
+                }
+            });
+            ads.showinteradmob(getString(R.string.interadmob));
+
 
         }
 
@@ -520,72 +528,7 @@ public class PlayerMusicActivity extends AppCompatActivity {
 
 
 
-    public  void showinter( String inter) {
-        hud.show();
 
-
-        mInterstitialAd = new com.google.android.gms.ads.InterstitialAd(PlayerMusicActivity.this);
-        mInterstitialAd.setAdUnitId(inter);
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                mInterstitialAd.show();
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                hud.dismiss();
-                DialogEqualizerFragment fragment = DialogEqualizerFragment.newBuilder()
-                        .setAudioSessionId(sessionId)
-                        .themeColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimary))
-                        .textColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.grey_1000))
-                        .accentAlpha(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccentLight))
-                        .darkColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimaryDark))
-                        .setAccentColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccent))
-                        .build();
-                fragment.show(getSupportFragmentManager(), "eq");
-
-
-
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                hud.dismiss();
-                DialogEqualizerFragment fragment = DialogEqualizerFragment.newBuilder()
-                        .setAudioSessionId(sessionId)
-                        .themeColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimary))
-                        .textColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.grey_1000))
-                        .accentAlpha(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccentLight))
-                        .darkColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorPrimaryDark))
-                        .setAccentColor(ContextCompat.getColor(PlayerMusicActivity.this, R.color.colorAccent))
-                        .build();
-                fragment.show(getSupportFragmentManager(), "eq");
-
-                // Code to be executed when the interstitial ad is closed.
-            }
-        });
-
-
-    }
 
 }
 
